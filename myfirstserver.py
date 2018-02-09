@@ -39,16 +39,18 @@ def respond(socket, client_ip_and_port):
     # Split the request into separate lines (each a header) and discard last
     # empty line
     request_headers = request.splitlines()[:-1]
+
     # The header section we'll return, ending with an empty line:
     response_headers = 'HTTP/1.1 200 OK\n\n'
     # Our html response heading:
-    response_heading = ('<h1>Hi there at %s:%s, ' % client_ip_and_port +
-                        'here are your request headers:</h1>')
+    response_body_heading = ('<h1>Hi there at %s:%s, ' % client_ip_and_port +
+                             'here are your request headers:</h1>')
     # Some more html to display the request headers as an unordered list:
-    headers_ul = '<ul><li>' + '</li><li>'.join(request_headers) + '</li></ul>'
+    response_body_ul = ('<ul><li>%s</li></ul>' %
+                        '</li><li>'.join(request_headers))
     # Collect the response parts and encode as a byte sequence:
     encoded_response = (response_headers +
-                        response_heading + headers_ul).encode()
+                        response_body_heading + response_body_ul).encode()
     # Send the response across the socket:
     socket.send(encoded_response)
 
