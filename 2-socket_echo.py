@@ -13,8 +13,10 @@ listening_socket.listen(MAXIMUM_QUEUE_SIZE)
 print("Hello, I'm waiting for a connection")
 
 
-(clientsocket, client_ip_and_port) = listening_socket.accept()
+(client_socket, client_ip_and_port) = listening_socket.accept()
+initial_response = "hi there, I can echo whatever you tell me\n".encode()
+client_socket.send(initial_response)
 while True:
-    client_message = clientsocket.recv(BUFFER_SIZE).decode()
+    client_message = client_socket.recv(BUFFER_SIZE).decode()
     response = ("You said: %s" % client_message).encode()
-    clientsocket.send(response)
+    client_socket.send(response)

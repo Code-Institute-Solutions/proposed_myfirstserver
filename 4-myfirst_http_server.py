@@ -69,21 +69,21 @@ def serverloop():
     handle it in our `respond` function.
     """
     # Create a regular internet socket (TCP/IP):
-    serversocket = socket.socket()
+    server_socket = socket.socket()
     # Bind the socket to listen on a specific port on our computer:
-    serversocket.bind((IP, PORT))
+    server_socket.bind((IP, PORT))
     # Begin listening on the socket, with a particular queue size:
-    serversocket.listen(MAXIMUM_QUEUE_SIZE)
+    server_socket.listen(MAXIMUM_QUEUE_SIZE)
 
     # Do this forever (until server process is killed):
     while True:
         # Accept a connection from next client:
         # for each connection we get the socket and connection details
-        (clientsocket, client_ip_and_port) = serversocket.accept()
+        (client_socket, client_ip_and_port) = server_socket.accept()
         # Process the client's request:
-        respond(clientsocket, client_ip_and_port)
+        respond(client_socket, client_ip_and_port)
         # Close the client connection:
-        clientsocket.close()
+        client_socket.close()
 
 
 if __name__ == '__main__':
