@@ -5,13 +5,13 @@ IP = '127.0.0.1'
 PORT = 1234
 MAXIMUM_QUEUE_SIZE = 0
 
-serversocket = socket.socket()
-serversocket.bind((IP, PORT))
+listening_socket = socket.socket()
+listening_socket.bind((IP, PORT))
 
-serversocket.listen(MAXIMUM_QUEUE_SIZE)
-print("Hello, I'm waiting for connections")
+listening_socket.listen(MAXIMUM_QUEUE_SIZE)
+print("Hello, I'm waiting for a connection")
 
-(clientsocket, client_ip_and_port) = serversocket.accept()
-clientsocket.send(b"Hi user, here's my response :)\n")
-
+(clientsocket, client_ip_and_port) = listening_socket.accept()
+clientsocket.send(b"Hi there, here's my response :), bye\n")
+clientsocket.close()
 print("Well, I've had enough, I'll quit now")
