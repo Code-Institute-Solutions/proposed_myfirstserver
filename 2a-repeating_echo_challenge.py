@@ -16,7 +16,8 @@ print("Hello, I'm waiting for a connection")
 (client_socket, client_ip_and_port) = listening_socket.accept()
 initial_response = "hi there, I can echo whatever you tell me\n".encode()
 client_socket.send(initial_response)
+
 while True:
     client_message = client_socket.recv(BUFFER_SIZE).decode()
-    response = ("You said: %s" % client_message).encode()
-    client_socket.send(response)
+    echo_response = ("You said: %s" % client_message).encode()
+    client_socket.send(echo_response)
