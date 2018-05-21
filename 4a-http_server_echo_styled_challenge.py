@@ -28,7 +28,7 @@ def respond(socket, client_ip_and_port):
 
     The response we're constructing has a similar structure, one or more
     response headers, then an empty line and then the response body, which
-    is usually HTML (other common choices are JSON or XML).
+    is usually HTML (other common choices are JSON, XML and plain text).
 
     A server generally crafts a response based on the specific request
     details. In this example, we just return a list with the request headers.
