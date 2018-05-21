@@ -2,7 +2,7 @@
 import socket
 
 IP = '0.0.0.0'
-PORT = 1234
+PORT = 8080
 MAXIMUM_QUEUE_SIZE = 0
 BUFFER_SIZE = 2048
 

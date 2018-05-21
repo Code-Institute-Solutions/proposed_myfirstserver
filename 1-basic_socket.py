@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import socket
 
-IP = '127.0.0.1'
+IP = '0.0.0.0'
 PORT = 1234
 MAXIMUM_QUEUE_SIZE = 0
 

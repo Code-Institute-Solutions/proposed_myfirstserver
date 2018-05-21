@@ -5,8 +5,8 @@ import socket
 
 # The ip address to listen on:
 # 127.0.0.1 (aka localhost) only listens to requests from the local computer
-# set to 0.0.0.0 in order to accept requests from entire network
-IP = '127.0.0.1'
+# while 0.0.0.0 accepts requests from entire network, and is needed in C9
+IP = '0.0.0.0'
 # Port number to listen on:
 # use any number from 1024 to 65535 (lower numbers are reserved)
 PORT = 1234
